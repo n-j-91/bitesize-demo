@@ -1,0 +1,23 @@
+project: bitesize-demo
+environments:
+  - name: dev
+    namespace: bitesize-demo-dev
+    deployment:
+      method: rolling-upgrade
+    services:
+      - name: simple-node-server
+        external_url: bitesize-demo.dev-prsn.io
+        ssl: false
+        port: 3000
+        httpsOnly: false
+  - name: qa
+    namespace: bitesize-demo-qa
+    deployment:
+      method: rolling-upgrade
+      mode: manual
+    services:
+      - name: simple-node-server
+        external_url: bitesize-demo.qa-prsn.io
+        ssl: false
+        port: 3000
+        httpsOnly: false
