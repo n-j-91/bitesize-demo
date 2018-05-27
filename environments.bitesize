@@ -7,6 +7,7 @@ environments:
     services:
       - name: simple-node-server
         external_url: bitesize-demo.dev-prsn.io
+        replicas: 3
         ssl: false
         port: 3000
         httpsOnly: false
@@ -19,5 +20,6 @@ environments:
       - name: simple-node-server
         external_url: bitesize-demo.qa-prsn.io
         ssl: false
+        replicas: 3
         port: 3000
         httpsOnly: false
