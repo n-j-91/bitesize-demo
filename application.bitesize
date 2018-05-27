@@ -8,4 +8,4 @@ applications:
         origin:
           build: simple-node-server
         version: 1.0.0
-    command: "/bitesize-demo/package/node index.js"
+    command: "node /bitesize-demo/package/index.js"
