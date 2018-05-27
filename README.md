@@ -1,2 +1,2 @@
 # bitesize-demo
-This is a demo repository for bitesize
+This is a demo repository for bitesize config files.
