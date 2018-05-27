@@ -1,0 +1,24 @@
+project: bitesize-demo
+components:
+  - name: simple-node-server
+    os: linux
+    dependencies:
+        - type: debian-package
+          package: nodejs
+          version: 10.1.0-1nodesource1
+          location: https://deb.nodesource.com/node_10.x/pool/main/n/nodejs/nodejs_10.1.0-1nodesource1_amd64.deb
+        - type: gem-package
+          package: fpm
+    repository:
+      git: git@github.com:uchann2/simple-node-server.git
+      branch: master
+    build:
+      - shell: node --version
+      - shell: npm --version
+      - shell: npm install express --save
+      - shell: npm install moment --save
+      - shell: npm install --suppress-warnings --save
+      - shell: npm pack
+      - shell: fpm -s tar -t deb -n simple-node-server -v 1.0.0 --iteration $(date "+%Y%m%d%H%M%S") --prefix /bitesize-demo simple-node-server-1.0.0.tgz
+    artifacts:
+      - location: "*.deb"
