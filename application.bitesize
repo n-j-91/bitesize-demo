@@ -1,0 +1,11 @@
+project: bitesize-demo
+applications:
+  - name: simple-node-server
+    runtime: ubuntu-nodejs5x:1.2
+    dependencies:
+      - name: simple-node-server
+        type: debian-package
+        origin:
+          build: simple-node-server
+        version: 1.0.0
+    command: "/bitesize-demo/package/node index.js"
